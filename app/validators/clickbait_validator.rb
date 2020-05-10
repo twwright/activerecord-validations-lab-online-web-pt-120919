@@ -8,7 +8,7 @@ class ClickbaitValidator < ActiveModel::Validator
   ]
 
   def validate(record)
-    if CLICKBAIT_PATTERNS.none? { |pattern| pattern.match(record.title) }
+    if CLICKBAIT_PATTERNS.none? { |pat| pat.match(record.title) }
       record.errors[:title] << "Title must be clickbait"
     end
   end
